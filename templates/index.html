@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>📈 Reliance Stock Price Prediction</h1>
+
+    <h2>📊 Price Table</h2>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Price (₹)</th>
+        </tr>
+        {% for row in price_data %}
+        <tr>
+            <td>{{ row.Day }}</td>
+            <td>{{ "%.2f"|format(row.Price) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>📉 Price Trend Graph</h2>
+    <img src="{{ url_for('static', filename='graph.png') }}" alt="Stock Trend">
+
+</body>
+</html>
